@@ -1,0 +1,630 @@
+Exception handling
+
+1. Which of the following is the correct syntax for catching multiple exceptions in a single catch block?
+
+(a) catch (ExceptionType1 || ExceptionType2 || ExceptionType3 ex) 
+(b) catch (ExceptionType1, ExceptionType2, ExceptionType3 ex)
+(c) catch (ExceptionType1 && ExceptionType2 && ExceptionType3 ex)
+(d) catch (ExceptionType1 | ExceptionType2 | ExceptionType3 ex)
+Answer: d) catch (ExceptionType1 | ExceptionType2 | ExceptionType3 e)
+
+Explanation: Multiple exceptions can be caught in a single catch block using the single pipe symbol (|) to separate the exception types.
+
+
+
+
+2. What is wrong with the following code snippet in the context of try-with-resources?
+
+static String readFirstLineFromFile() throws IOException {
+
+    try (FileReader fr = new FileReader("");
+         BufferedReader br = new BufferedReader(fr)) {
+        fr= new FileReader("xyz.txt");
+        return br.readLine();
+    }
+}
+(a) There is no catch block after the try block. 
+(b) The re-assignment of variable 'fr' is not allowed.
+(c) Two resources can't be declared in a try block.
+(d) The throws clause is not needed.
+Answer: b) The re-assignment of variable ‘fr’ is not allowed.
+
+Explanation: The resources declared in a try-with-resources context are final by default, hence we can’t re-assign them. There will be a compilation error at the same line.
+
+
+
+3. Which of the following exception must be either caught or declared to be thrown in Java?
+
+(a) NullPointerException
+(b) ArrayIndexOutOfBoundsException
+(c) FileNotFoundException 
+(d) ArithmeticException
+Answer: c) FileNotFoundException
+
+Explanation: FileNotFoundException is a checked exception in Java, hence it must be either caught or declared to be thrown.
+
+
+4. Which of the following exception must be either caught or declared to be thrown in Java?
+
+(a) NullPointerException
+(b) ArrayIndexOutOfBoundsException
+(c) FileNotFoundException 
+(d) ArithmeticException
+Answer: c) FileNotFoundException
+
+Explanation: FileNotFoundException is a checked exception in Java, hence it must be either caught or declared to be thrown.
+
+5. What is the output of the following code snippet?
+
+try {
+    throw new NullPointerException();
+} catch (RuntimeException e) {
+    System.out.println("RuntimeException");
+} catch (Exception e) {
+    System.out.println("Exception");
+}
+(a) RuntimeException
+(b) Exception
+(c) NullPointerException
+(d) The code will not compile.
+Answer: a) RuntimeException
+
+Explanation: The code explicitly throws a NullPointerException, which is a subclass of RuntimeException. 
+Since the catch block for RuntimeException is defined first, it is executed.
+
+
+
+6. Which keyword will you use to specify that a method can potentially throw an exception?
+
+(a) try
+(b) catch
+(c) throw
+(d) throws
+Answer: d) throws
+
+Explanation: We use the throws keyword in a method declaration to state that the method can potentially throw one or more exceptions.
+
+
+7. Which of the following statements is true about the try-with-resources statement in Java?
+
+(a) It is used to handle multiple exceptions in a single catch block.
+(b) It is used to specify that a method can potentially throw an exception.
+(c) It is used to automatically close resources after usage.
+(d) It is used to define custom exception classes.
+Answer: c) It is used to automatically close resources after usage.
+
+Explanation: The try-with-resources statement in Java is used to automatically close resources after usage, 
+ensuring that resources are properly managed and released.
+
+
+8. What is the output of the following code snippet?
+
+try {
+    throw new Exception("First Exception");
+} catch (Exception e) {
+    try {
+        throw new Exception("Second Exception");
+    } catch (Exception ex) {
+        System.out.println(ex.getMessage());
+   }
+}
+(a) First Exception
+(b) Second Exception
+(c) First Exception followed by Second Exception
+(d) Second Exception followed by First Exception
+Answer: b) Second Exception
+
+Explanation: The code throws the first exception, catches it, and then throws the second exception, 
+which is caught and its message is printed.
+
+
+9. What is the output of this program?
+
+class Main
+{
+        public static void main(String args[])
+	{
+		try
+		{
+			System.out.print("Hello" + " " + 1 / 0);
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.print("World");
+		}
+	}
+}
+A. Hello
+B. World
+C. HelloWorld
+D. Hello World
+View Answer
+
+Ans : B
+Explanation: System.out.print() function first converts the whole parameters into a string and then prints, 
+before ""Hello"" goes to output stream 1 / 0 error is encountered which is cached by catch block printing just ""World"".
+
+
+
+
+10. Which of these is a super class of all exceptional type classes?
+
+A. String
+B. RuntimeExceptions
+C. Throwable
+D. Cacheable
+View Answer
+
+Ans : C
+Explanation: All the exception types are subclasses of the built in class Throwable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------oop
+
+Which of the following is true about interfaces in java.
+
+1) An interface can contain following type of members.
+....public, static, final fields (i.e., constants) 
+....default and static methods with bodies
+2) An instance of interface can be created.
+3) A class can implement multiple interfaces.
+4) Many classes can implement the same interface.
+
+a. 1, 3 and 4
+b. 1, 2 and 4
+c. 2, 3 and 4
+d. 1, 2, 3 and 4
+
+ans - a
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------- core java ------------------------------------------
+1. What is output of following program - 
+public class Main
+{
+public static void main(String[] args) {
+    int a = 0;
+	if(a==1);
+	System.out.print("Sun");
+	System.out.println("Moon");
+}
+}
+
+(A) Error
+(B) exception: unreachable code
+(C) Sun
+(D) SunMoon
+
+ans - D
+
+
+2. Which of these method of Object class is used to obtain class of an object at run time?
+a) get()
+b) void getclass()
+c) Class getclass()
+d) None of the mentioned
+
+ans - c
+
+
+
+
+3. What is the output of the following JAVA program ?
+Class Test {
+    public static void main(String[] args) {
+        Test obj = new Test();
+        obj.start();
+    }
+    void start() {
+        String stra = ”do”;
+            String strb = method(stra);
+        System.out.print(“: ”+stra + strb);
+    }
+    String method(String stra) {
+        stra = stra + ”good”;
+        System.out.print(stra);
+        return“ good”;
+    }
+}
+
+
+
+a) dogood : dogoodgood
+b) dogood : gooddogood
+c) dogood : dodogood
+d) dogood : dogood
+
+ans - d
+
+4. Identify the correct restriction on static methods.
+
+1. They must access only static data
+2. They can only call other static methods.
+3. They cannot refer to this or super.
+
+a) 1,2
+b) 2,3
+c) 3
+d) 1,2,3
+
+ans - d
+
+
+5. Which of the following is/are true about constructors in Java?
+
+1) Constructor name should be same as class name.
+2) If you don't define a constructor for a class, 
+    a default parameterless constructor is automatically
+    created by the compiler. 
+3) The default constructor calls super() and initializes all 
+   instance variables to default value like 0, null.
+4) If we want to parent class constructor, it must be called in 
+   first line of constructor.
+
+a) 1
+b) 1, 2
+c) 1, 2 and 3
+d) 1, 2, 3 and 4
+
+ans - d
+
+
+
+
+
+
+--------------------------------------------------
+
+
+
+
+2. Look at the following code and choose the right option for the word :
+// Shape.java
+public class Shape {
+    protected void display() {
+        System.out.println("Display-base");
+    }
+}
+// Circle.java
+public class Circle extends Shape { <
+    < access - modifier > void display() {
+        System.out.println("Display-derived");
+    }
+}
+a) Only the protected can be used.
+b) public and protected both can be used.
+c) public, protected, and private can be used.
+d) Only the public can be used.
+Answer :
+B. public and protected both can be used.
+
+
+8. What is the output of the following Java program?
+public class Test {
+    public void print(Integer i) {
+        System.out.println("Integer");
+    }
+
+    public void print(int i) {
+        System.out.println("int");
+    }
+
+    public void print(long i) {
+        System.out.println("long");
+    }
+
+    public static void main(String args[]) {
+        Test test = new Test();
+        test.print(10);
+    }
+}
+a) The program results in a compiler error (“ambiguous overload”).
+b) long
+c) Integer
+d) int
+Answer: 
+d) int
+
+
+
+
+Will you find out the error in the below code?
+
+class X
+{
+    static void methodOfX()
+    {
+        System.out.println("Class X");
+    }
+}
+ 
+class Y extends X
+{
+    @Override
+    static void methodOfX()
+    {
+        System.out.println("Class X");
+    }
+}
+
+Answer :
+Can’t override static methods.
+
+
+--------------------------- inheritance -------------------------------
+
+
+111.Which of the following statements is true?
+(a)Inheritance defines a has-a relationship between a superclass and its subclasses
+(b)Every java object has a public method named equals
+(c)Every java object has a public method named length
+(d)A class can extend any number of other classes
+(e)All of the above.
+
+Answer : (b)
+
+
+
+112.Which of the following statements is true?
+(a)The keyword extends is used to specify that an interface inherits from another interface
+(b)The keyword extends is used to specify that a class inherits from an interface
+(c)The keyword implements is used to specify that an interface inherits from another interface
+(d)The keyword implements is used to specify that a class inherits from another class
+(e)None of the above.
+
+Answer : (a)
+
+
+
+113.Which is the first line that will cause compilation to fail in the following program?
+class MyClass
+{
+   public static void main(String[] args)
+   {
+          MyClass a;
+          MySubclass b;
+
+          a = new MyClass();           //(1)
+          b = new MySubclass();  //(2)
+
+          a = b;                           //(3)
+          b = a;                           //(4)
+          a = new MySubclass();  //(5)
+   }
+}
+class MySubclass extends MyClass
+{
+}
+(a)Line labeled (1)
+(b)Line labeled (2)
+(c)Line labeled (3)
+(d)Line labeled (4)
+(e)Line labeled (5).
+
+Answer : (d)
+
+
+
+114.Given the following definitions and reference declarations, which one of the following assignments is legal?
+//Definitions:
+interface I1{}
+interface I2{}
+class C1 implements I1 {}
+class C2 implements I2 {}
+class C3 extends C1 implements I2 {}
+//Reference declarations:
+//. . . .
+   C1 obj1;
+C2 obj2;
+C3 obj3;
+          //. . . .
+(a)obj2 = obj1;
+(b)obj3 = obj1;
+(c)obj3 = obj2;
+(d)I1 a = obj2;
+(e)I1 b = obj3;
+
+Answer : (e)
+
+
+
+
+115.Given the following class definitions and the reference declarations, what can be said about the statement y = (Sub) x?
+// Class definitions:
+class Super { }
+class Sub extends Super { }
+
+//Reference declarations
+// . . .
+   Super x;
+   Sub y;
+// . . .
+(a)Illegal at compile time
+(b)Legal at compile time, but might be illegal at runtime
+(c)Definitely legal at runtime, but the (Sub) cast is not strictly needed
+(d)Definitely legal at runtime, and the (Sub) cast is needed
+(e)None of the above.
+
+Answer : (b)
+
+
+
+116.Given three classes A,B,C, where B is a subclass of A and C is a subclass of B, which one of these Boolean expressions 
+is true when an object denoted by reference has actually been instantiated from class B as opposed to from A or C?
+(a)(o instanceof B) && (!(o instanceof A))
+(b)(o instanceof B) && (!(o instanceof C))
+(c)!((o instanceof A) || (o instanceof B))
+(d)(o instanceof B)
+(e)(o instanceof B) && !((o instanceof A) || (o instanceof C)).
+
+Answer : (b)
+
+
+
+117.What will be the result of attempting to compile and run the following program?
+public class Polymorphism
+{
+   public static void main(String[] args)
+   {
+          A ref1 = new C();
+          B ref2 = (B) ref1;
+          System.out.println(ref2.f());
+   }
+}
+class A
+{
+   int f() { return 0; }
+}
+class B extends A
+{
+   int f() { return 1; }
+}
+class C extends B
+{
+   int f() { return 2; }
+}
+(a)The program will fail to compile
+(b)The program will compile without error, but will throw a ClassCastException when run
+(c)The program will compile without error and print 0 when run
+(d)The program will compile without error and print 1 when run
+(e)The program will compile without error and print 2 when run.
+
+	
+Answer : (e)
+
+
+
+
+
+-------------------------------- casting 
+
+4. Which among the following is the best situation to use upcasting?
+a) For general code dealing with only subtype
+b) For general code dealing with only supertype
+c) For general code dealing with both the supertype and subtype
+d) For writing a rigid code with respect to subtype
+
+
+Answer: b
+
+
+
+Which casting among the following is allowed for the code given below?
+
+class A
+{
+	public :int a;
+}
+class B:public A
+{
+	int b;
+}
+main()
+{
+	B b=new A();  //casting 1
+	A a=new B();  //casting 2
+}
+a) Casting 1
+b) Casting 2
+c) casting 1 and casting 2
+d) casting 1 nor casting 2
+
+Answer: b
+
+
+
+If class C inherits class B and class B inherits class A ________________
+a) Class C object can be upcasted to object of class B only
+b) Class C object can be upcasted to object of class A only
+c) Class C object can be upcasted to object of either class A or B
+d) Class C object can’t be upcasted
+
+
+Answer: c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
